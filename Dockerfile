@@ -1,5 +1,4 @@
 # Build stage
-LABEL authors="jere"
 FROM node:lts-alpine3.19 as build
 
 WORKDIR /app

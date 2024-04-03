@@ -10,7 +10,7 @@ services:
 
   frontend:
     build:
-      context: ./frontend
+      context: ./
       dockerfile: Dockerfile
       target: prod
     ports:
