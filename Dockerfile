@@ -21,4 +21,8 @@ RUN npm ci --omit
 
 COPY --from=build /app/build ./build
 
-CMD ["npm", "serve"]
+ENV PORT=8000
+
+EXPOSE 8000
+
+CMD ["npm", "run", "serve"]
