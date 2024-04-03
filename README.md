@@ -1,38 +1,36 @@
-# create-svelte
+# Getting Started
+To get started with the project, you'll need to have Docker and Docker Compose installed on your machine. If you haven't installed these tools yet, you can find the installation instructions on the official Docker website.
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+# Project Structure
+The project is structured as follows:
 
-## Creating a project
+    docker-compose.yml: This file defines the services that make up the project.
+    ./: This directory contains the frontend application, including its Dockerfile for building the image.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Services
+The project uses this service:
 
+### WhatsApp HTTP API
+
+- Service Name: whatsapp-http-api
+- Image: [devlikeapro/whatsapp-http-api](https://waha.devlike.pro)
+
+# Running the Project
+To start the project, navigate to the project directory and run the following command:
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+docker-compose up -d
 ```
+This command will start the services in detached mode. The whatsapp-http-api service will be accessible on port 3000, and the frontend service will be accessible on port 8000.
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
+# Stopping the Project
+To stop the services, run the following command in the project directory:
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+docker-compose down
 ```
+This command will stop and remove the containers, networks, and volumes defined in the docker-compose.yml file.
 
-## Building
+# Contributing
+Contributions are welcome! Please feel free to submit pull requests or open issues for any improvements or bug fixes.
 
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+# License
+This project is licensed under the MIT License. See the LICENSE file for details.
