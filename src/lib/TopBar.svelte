@@ -5,7 +5,7 @@
 
     async function signOut() {
         try {
-            const response = await fetch('/signout', { method: 'POST' });
+            const response = await fetch('/signout', {method: 'POST'});
             if (response.ok) {
                 window.location.href = '/login'; // Redirect to login page
             } else {
@@ -48,12 +48,14 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown profile-top"
                      aria-labelledby="profileDropdown">
-                    <!--							<a href="#" class="dropdown-item"><i class="zmdi zmdi-account profile-icon" aria-hidden="true"></i> My profile</a>-->
-                    <a href="#" class="dropdown-item"><i class="zmdi zmdi-email-open profile-icon"
-                                                         aria-hidden="true"></i> Messages</a>
+                    <a href="#" class="dropdown-item">
+                        <i class="zmdi zmdi-email-open profile-icon" aria-hidden="true"></i>
+                        Messages
+                    </a>
                     <a href="#" class="dropdown-item"><i class="zmdi zmdi-brightness-7 profile-icon"
                                                          aria-hidden="true"></i> Settings</a>
-                    <a href={"#"} class="dropdown-item" on:click|preventDefault={signOut}><i class="ti-unlink profile-icon" aria-hidden="true"></i> Sign-out</a>
+                    <a href={"#"} class="dropdown-item" on:click|preventDefault={signOut}><i
+                            class="ti-unlink profile-icon" aria-hidden="true"></i> Sign-out</a>
                 </div>
             </li>
         </ul>

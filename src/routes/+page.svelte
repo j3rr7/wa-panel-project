@@ -6,18 +6,26 @@
     /** @type {import('./$types').PageData} */
     export let data;
 
-    console.log(JSON.stringify(data, null, 2));
-
     let showQRCode = false;
     let whatsappQRSrc = "";
 
     async function fetchWhatsappQRCode() {
         try {
-            const response = await fetch("https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=dummy");
-            if (response.ok) {
-                const blob = await response.blob();
-                whatsappQRSrc = URL.createObjectURL(blob);
+            const QRCodeResp = await fetch("/api/wa/create", {
+                method: "POST",
+            });
+
+            if (QRCodeResp.status !== 200) {
+                console.error(`Failed to fetch QR code: ${QRCodeResp.status} ${QRCodeResp.statusText}`);
+                showQRCode = false;
+                whatsappQRSrc = "/img/core-img/error.png"
+                return;
             }
+
+            const QRCodeBlob = await QRCodeResp.blob();
+            showQRCode = true;
+            whatsappQRSrc = URL.createObjectURL(QRCodeBlob);
+
         } catch (error) {
             console.error(error);
         }
